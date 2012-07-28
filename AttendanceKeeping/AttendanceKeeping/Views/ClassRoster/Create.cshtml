@@ -1,0 +1,43 @@
+﻿@model AttendanceKeeping.Models.ClassRoster
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>ClassRoster</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ClassScheduleId, "ClassSchedule")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("ClassScheduleId", String.Empty)
+            @Html.ValidationMessageFor(model => model.ClassScheduleId)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.PersonId, "Person")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("PersonId", String.Empty)
+            @Html.ValidationMessageFor(model => model.PersonId)
+        </div>
+
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

@@ -1,0 +1,29 @@
+﻿@model AttendanceKeeping.Models.RosterAttendance
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>RosterAttendance</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ClassRoster.ClassRosterId)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ClassRoster.ClassRosterId)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ClassDate)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ClassDate)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.RosterAttendanceId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,30 @@
+﻿@model IEnumerable<AttendanceKeeping.Models.ClassSchedule>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<div id="class-list">
+    @foreach (var item in Model)
+    {
+        <div data-role="collapsible">
+            <h3>@item.ClassName</h3>
+            <div class="ui-grid-a">
+                <div class="ui-block-a">
+                    <table>
+                        <tr>
+                            <td><a data-inline="true" data-role="button" data-theme="b" href="@Url.Action("Edit", "ClassSchedule", new { id = item.ClassScheduleId })">
+                                Edit</a></td>
+                            <td><a data-inline="true" data-role="button" data-theme="b" href="@Url.Action("Delete", "ClassSchedule", new { id = item.ClassScheduleId })">
+                                Delete</a></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    }
+</div>

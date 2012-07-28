@@ -1,0 +1,18 @@
+﻿@{
+    ViewBag.Title = "Home";
+}
+@if (string.IsNullOrEmpty(ViewBag.Message))
+{
+    <h3>@ViewBag.Message</h3>
+}
+@if (Request.IsAuthenticated)
+{
+    <ul data-role="listview" data-inset="true">
+        <li data-role="list-divider">Navigation</li>
+        <li>@Html.ActionLink("Attendance", "Index", "RosterAttendance")
+        </li>
+        <li>@Html.ActionLink("Persons", "Index", "Person")</li>
+        <li>@Html.ActionLink("Classes", "Index", "ClassSchedule")</li>
+        <li>@Html.ActionLink("Rosters", "Index", "ClassRoster")</li>
+    </ul>
+}

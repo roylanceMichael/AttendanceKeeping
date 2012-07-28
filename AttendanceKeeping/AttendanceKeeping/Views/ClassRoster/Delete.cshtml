@@ -1,0 +1,32 @@
+﻿@model AttendanceKeeping.Models.ClassRoster
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<fieldset>
+    <legend>ClassRoster</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ClassSchedule.ClassName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ClassSchedule.ClassName)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Person.LastName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Person.LastName)
+    </div>
+</fieldset>
+@using (Html.BeginForm()) {
+    <p>
+        <input type="submit" value="Delete" /> |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+}

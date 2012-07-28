@@ -1,0 +1,45 @@
+﻿@model AttendanceKeeping.Models.ClassRoster
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>ClassRoster</legend>
+
+        @Html.HiddenFor(model => model.ClassRosterId)
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ClassScheduleId, "ClassSchedule")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("ClassScheduleId", String.Empty)
+            @Html.ValidationMessageFor(model => model.ClassScheduleId)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.PersonId, "Person")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("PersonId", String.Empty)
+            @Html.ValidationMessageFor(model => model.PersonId)
+        </div>
+
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
