@@ -1,0 +1,17 @@
+﻿@model IEnumerable<AttendanceKeeping.Models.ClassSchedule>
+<input type="hidden" id="returnUrl" value="@Url.Action("ClassRoster", "Home")"/>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#class-list").change(function () {
+            var url = $("#returnUrl").val() + "/" + $("#class-list").val();
+            window.location = url;
+        });
+    });
+</script>
+<select id="class-list">
+    @foreach (var item in Model)
+    {
+        <option value="@item.ClassScheduleId">@item.ClassName</option>
+    }
+</select>
+<div id="class-roster"></div>

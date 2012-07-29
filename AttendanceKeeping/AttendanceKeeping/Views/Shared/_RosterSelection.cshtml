@@ -1,0 +1,19 @@
+﻿@model IEnumerable<AttendanceKeeping.Models.ClassRoster>
+@if (Model != null && Model.Any())
+{
+    <form action="@Url.Action("ClassRosterUpdate", "Home")" method="POST">
+        <fieldset data-role="controlgroup" data-type="vertical">
+            <legend>Students:</legend>
+            @foreach (var item in Model)
+            {
+                <input name="rosters[@item.ClassRosterId]" id="rosters[@item.ClassRosterId]" type="checkbox" />
+                <label for="rosters[@item.ClassRosterId]">@item.Person.LastName, @item.Person.FirstName</label>
+            }
+        </fieldset>
+        <input type="submit" value="Submit" />
+    </form>
+}
+else
+{
+    <h4>No Students!</h4>
+}

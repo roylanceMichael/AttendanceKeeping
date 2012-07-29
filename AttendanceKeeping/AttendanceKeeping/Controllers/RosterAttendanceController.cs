@@ -23,7 +23,12 @@ namespace AttendanceKeeping.Controllers
 				.Include(r => r.ClassRoster.ClassSchedule)
 				.Include(r => r.ClassRoster.Person);
 
-			return View(rosterattendances.ToList());
+		    var viewModel = new RosterAttendanceViewModel
+		        {
+		            RosterAttendances = rosterattendances.ToList()
+		        };
+
+			return View(viewModel);
 		}
 
 		//

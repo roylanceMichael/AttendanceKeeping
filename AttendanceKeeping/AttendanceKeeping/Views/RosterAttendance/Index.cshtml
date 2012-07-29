@@ -1,5 +1,4 @@
-﻿@model IEnumerable<AttendanceKeeping.Models.RosterAttendance>
-
+﻿@model AttendanceKeeping.Models.RosterAttendanceViewModel
 @{
     ViewBag.Title = "Index";
 }
@@ -7,19 +6,44 @@
 <h2>Index</h2>
 
 <p>
-	@Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Create New", "Create")
 </p>
 <div id="class-list">
-    @foreach (var item in Model)
+    @foreach (var item in Model.SortedRosterAttendances)
     {
         <div data-role="collapsible">
-            <h3>@item.ClassRoster.ClassSchedule.ClassName ~ @item.ClassRoster.Person.LastName : @item.ClassDate.ToShortDateString()</h3>
-            <div class="ui-grid-a">
-                <a data-inline="true" data-role="button" data-theme="b" href="@Url.Action("Edit", "RosterAttendance", new { id = item.RosterAttendanceId })">
-                    Edit</a>
-                <a data-inline="true" data-role="button" data-theme="b" href="@Url.Action("Delete", "RosterAttendance", new { id = item.RosterAttendanceId })">
-                    Delete</a>
-            </div>
-        </div>
+            <h2>@item.Key</h2>
+            <ul data-role="listview" data-theme="d" data-divider-theme="d">
+                @foreach (var rosterAttendance in item.Value)
+                {
+                    <li>
+                        <div data-role="collapsible">
+                            <h3>@rosterAttendance.ClassRoster.ClassSchedule.ClassName ~ @rosterAttendance.ClassRoster.Person.LastName,
+                                @rosterAttendance.ClassRoster.Person.FirstName</h3>
+                            <div class="ui-grid-a">
+                                <table>
+                                    <tr>
+                                        <th>Person:
+                                        </th>
+                                        <td>@rosterAttendance.ClassRoster.Person.LastName, @rosterAttendance.ClassRoster.Person.FirstName
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>Class:</th>
+                                        <td>@rosterAttendance.ClassRoster.ClassSchedule.ClassName</td>
+                                    </tr>
+                                    <tr>
+                                        <td rowspan="2"><a data-inline="true" data-role="button" data-theme="b" href="@Url.Action("Edit", "RosterAttendance", new { id = rosterAttendance.RosterAttendanceId })">
+                                            Edit</a></td>
+                                        <td><a data-inline="true" data-role="button" data-theme="b" href="@Url.Action("Delete", "RosterAttendance", new { id = rosterAttendance.RosterAttendanceId })">
+                                            Delete</a></td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </li>
+                }
+            </ul>
+        </div> 
     }
 </div>

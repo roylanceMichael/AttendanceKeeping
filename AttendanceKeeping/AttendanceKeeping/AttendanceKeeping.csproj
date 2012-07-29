@@ -154,8 +154,10 @@
     <Compile Include="Models\AttendanceKeepingContext.cs" />
     <Compile Include="Models\ClassRoster.cs" />
     <Compile Include="Models\ClassSchedule.cs" />
+    <Compile Include="Models\ClassViewModel.cs" />
     <Compile Include="Models\Person.cs" />
     <Compile Include="Models\RosterAttendance.cs" />
+    <Compile Include="Models\RosterAttendanceViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -264,6 +266,8 @@
     <Content Include="Views\RosterAttendance\Create.cshtml" />
     <Content Include="Views\RosterAttendance\Edit.cshtml" />
     <Content Include="Views\RosterAttendance\Delete.cshtml" />
+    <Content Include="Views\Shared\_ClassSelection.cshtml" />
+    <Content Include="Views\Shared\_RosterSelection.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

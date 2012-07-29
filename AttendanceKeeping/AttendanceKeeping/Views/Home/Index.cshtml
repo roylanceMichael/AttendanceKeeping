@@ -7,12 +7,13 @@
 }
 @if (Request.IsAuthenticated)
 {
+    @Html.Action("ClassSchedule")
+    
     <ul data-role="listview" data-inset="true">
         <li data-role="list-divider">Navigation</li>
-        <li>@Html.ActionLink("Attendance", "Index", "RosterAttendance")
-        </li>
+        <li>@Html.ActionLink("Attendance", "Index", "RosterAttendance")</li>
+        <li>@Html.ActionLink("Rosters", "Index", "ClassRoster")</li>
         <li>@Html.ActionLink("Persons", "Index", "Person")</li>
         <li>@Html.ActionLink("Classes", "Index", "ClassSchedule")</li>
-        <li>@Html.ActionLink("Rosters", "Index", "ClassRoster")</li>
     </ul>
 }
