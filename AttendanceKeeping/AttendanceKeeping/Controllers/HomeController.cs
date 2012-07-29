@@ -40,12 +40,12 @@ namespace AttendanceKeeping.Controllers
         [HttpPost]
         public ActionResult ClassRosterUpdate(Dictionary<string, string> rosters)
         {
-            if(rosters != null && rosters.Any())
+            if (rosters != null && rosters.Any())
             {
-                foreach(var id in rosters.Keys)
+                foreach (var id in rosters.Keys)
                 {
                     int actualTemp;
-                    if(int.TryParse(id, out actualTemp))
+                    if (int.TryParse(id, out actualTemp))
                     {
                         _db.RosterAttendances.Add(
                             new RosterAttendance
@@ -57,6 +57,13 @@ namespace AttendanceKeeping.Controllers
                 }
                 _db.SaveChanges();
             }
+            return RedirectToAction("Index", "Home");
+        }
+
+        [NoCache]
+        public ActionResult SendEmail()
+        {
+            EmailClient.EmailClient.SendAttendanceEmail();
             return RedirectToAction("Index", "Home");
         }
     }

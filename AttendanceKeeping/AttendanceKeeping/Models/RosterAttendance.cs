@@ -13,9 +13,5 @@ namespace AttendanceKeeping.Models
 		[ForeignKey("ClassRosterId")]
 		public ClassRoster ClassRoster { get; set; }
 		public DateTime ClassDate { get; set; }
-		public override string ToString()
-		{
-			return "WASSUP";
-		}
 	}
 }
